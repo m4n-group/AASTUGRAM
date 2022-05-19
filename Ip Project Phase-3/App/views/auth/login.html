@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Group - 7">
+   <base href="../../../../Ip Project Phase-3/">
+   <link rel="stylesheet" href="Resources/css/base.css">
+   <link rel="stylesheet" href="Resources/css/auth.css">
+	<script src="Resources/js/dataSet.js"></script>
+   <title>Login</title>
+</head>
+<body>
+   <div class="main-card">
+      <a href="App/views/landing-page.html" class="nav-bar">
+         <span>Log In</span>
+         <img src="Resources/images/svg/close.svg" class="nav-icon">
+      </a>
+      <div class="button-box">
+         <button class="switch on">LOGIN</button>
+         <button class="switch"><a href="App/views/auth/sign-up.html">SIGN UP</a></button>
+      </div>
+
+      <form action="App/views/main/index.html" onsubmit="return validateLogIn()" name="loginForm">
+         <div class="profile-photo-container">
+            <img src="Resources/images/svg/user.svg" class="profile-picture">
+         </div>
+
+         <label for="logemail">E-mail</label>
+         <input type="email" name="email" id="email" required class="text-input" placeholder="ets097813feng@aastu.edu.et">
+
+         <label for="password">Password</label>
+         <input type="password" name="password" id="password" required class="text-input">
+
+         <button type="submit" class="login">LOGIN</button>
+      </form>
+
+   </div>
+<script>
+var user, users, groupList, chatList;
+function validateLogIn() {
+   var email = document.forms["loginForm"]["email"].value;
+   var password = document.forms["loginForm"]["password"].value;
+   user = users[email.substr(0,7)];
+
+   if (user && (user.password == password)) {
+      localStorage.setItem("curUser", email.substr(0,7));
+      alert("successful");
+   }
+   else {
+      alert("Either the username or the password is incorrect.");
+      return false;
+   }
+}
+</script>
+</body>
+</html>

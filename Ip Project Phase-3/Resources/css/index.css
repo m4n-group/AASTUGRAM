@@ -1,0 +1,376 @@
+body {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+main {
+	flex-basis: 100px;
+	flex-grow: 1;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+}
+
+.side-nav {
+	width: 100%;
+	flex-basis: 60px;
+	flex-shrink: 0;
+	flex-grow: 0;
+	z-index: 2;
+	box-shadow: 0 0 10px #0002;
+}
+
+.main-stack {
+	flex-grow: 1;
+	flex-basis: 100px;
+	flex-shrink: 0;
+	height: 100%;
+	max-height: 100%;
+	overflow-y: hidden;
+	background-color: white;
+}
+.header-stack {
+	width: 100%;
+	height: 50px;
+	flex-basis: 50px;
+	flex-shrink: 0;
+	flex-grow: 0;
+}
+
+.footer-stack {
+	width: 100%;
+	height: 50px;
+	flex-basis: 50px;
+	flex-shrink: 0;
+}
+.footer-stack>*{
+	position: absolute;
+	top: 0;left: 0;
+}
+header {
+	position: absolute;
+	top:  0;left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	align-items: center;
+	justify-content: space-around;
+	overflow-x: hidden;
+	padding: 0 10px;
+	gap: 10px;
+	background-color: white;
+}
+.app-icon-container {
+	flex-basis: content;
+	flex-grow: 0;
+	width: auto;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #52b;
+}
+.app-icon,
+.profile-icon {
+	height: 40px;
+	border-radius: 50px;
+	transition: 0.3s;
+}
+.app-icon-label {
+	font-family: "Trebuchet MS";
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: calc(100% - 50px);
+}
+.alt-icon-label {
+	flex-grow: 1;
+	width: calc(100% - 100px);
+}
+.alt-app-icon {
+	flex-grow: 1;
+	max-width: calc(100% - 70px);
+}
+.search-box {
+	height: 100%;
+	flex-basis: 30px;
+	flex-grow: 5;
+	flex-shrink: 1;
+	padding: 10px 0;
+	background-color: white;
+	z-index: 6;
+}
+.fake-search-box {
+	height: 100%;
+	flex-basis: 0px;
+	flex-grow: 1;
+}
+
+.magic-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	display: none;
+	background-color: transparent;
+}
+
+.search-field-container {
+	width: 100%;
+	max-width: 500px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+	border: solid 1px #cbbdcd;
+	border-radius: 5px;
+	transition: 0.2s;
+}
+
+.search {
+	flex-basis: 5px;
+	flex-grow: 1;
+	flex-shrink: 1;
+	padding: 5px;
+	height: 100%;
+	font-size: 16px;
+	color: #52b;
+}
+
+.search-field-container img {
+	flex-shrink: 0;
+	height: 30px;
+}
+
+.search-field-container:hover {
+	border-color: var(--col-primary);
+	background-color: rgb(248, 245, 245);
+	box-shadow: inset 0 0 30px rgba(214, 211, 211, 0.2);
+}
+
+.search-field-container:hover .search {
+	background-color: rgb(248, 245, 245);
+}
+
+.profile-box {
+	flex-basis: content;
+	flex-shrink: 0;
+	flex-grow: 0;
+	width: auto;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 10px;
+	color: #52b;
+}
+
+.profile-label {
+	display: none;
+	text-transform: capitalize;
+}
+
+header img {
+	height: 40px;
+	border-radius: 50%;
+	padding: 5px;
+}
+.app-icon:hover,
+.profile-icon:hover {
+	background-color: hsl(238, 72%, 95%);
+}
+nav {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 0;
+	background-color: rgb(255, 255, 255);
+}
+nav>input:checked + label {
+	background-color: var(--col-light);
+}
+.nav-icon-container {
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	box-sizing: content-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	transition: 0.2s;
+}
+
+.nav-icon {
+	height: 30px;
+}
+
+.nav-icon-label {
+	position: absolute;
+	top: 0px; left: calc(100% + 20px);
+	height: 40px;
+	line-height: 34px;
+	text-transform: uppercase;
+	text-align: center;
+	width: auto;
+	padding: 0 15px;
+	color: hsl(238, 72%, 49%);
+	background-color:hsl(238, 72%, 100%);
+	border: solid 3px  hsl(238, 72%, 100%);
+	box-shadow: 0 0 10px #3334;
+	border-radius: 5px;
+	font-family: "Trebuchet MS";
+	font-size: 16px;
+	font-weight: bold;
+	transition: 0.35s;
+	opacity: 0;
+}
+
+.side-bar {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	animation: side-bar-enterance 0.1s ease;
+	overflow-y: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	background-color: #3334;
+	z-index: 3;
+	display: none;
+}
+
+.side-bar-stack {
+	width: 100%;
+	max-width: 360px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+}
+.header-stack {
+	z-index: 7;
+}
+@media (min-width: 748px) {
+	.app-icon-container,
+	.profile-box {
+		flex-basis: 25%;
+	}
+
+	.profile-label {
+		display: flex;
+	}
+
+	body {
+		flex-direction: row;
+		overflow-y: hidden;
+	}
+
+	main {
+		order: 2;
+	}
+
+	.side-nav {
+		width: 60px;
+		height: 100%;
+		padding-top: 50px;
+		background-color: white;
+		border-right: solid 1px var(--col-light);
+		box-shadow: none;
+	}
+
+	nav {
+		flex-direction: column;
+		justify-content: flex-start;
+		padding-top: 10px;
+		border: none;
+	}
+
+	.nav-icon-container:hover {
+		overflow: visible;
+		background-color: var(--col-lighter);
+		border-radius: 5px;
+	}
+
+	.nav-icon-container:hover .nav-icon-label {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 360px) {
+	.search {
+		display: none;
+	}
+	.search-box, .profile-box {
+		flex-grow:0;
+		justify-content: flex-end;
+	}
+	.search-field-container {
+		border: none;
+	}
+	.app-icon-container {
+		flex-grow: 1;
+	}
+	.magic-button {
+		display: block;
+	}
+	.search-box:hover {
+		position: absolute;
+		width: calc(100% - 12px);
+		left: 6px;
+		height: 100%;
+		padding: 10px;
+	}
+	.search-box:hover .search-field-container {
+		border: solid 1px var(--col-primary);
+	}
+	.search-box:hover .search {
+		display: block;
+	}
+	.search-box:hover .magic-button {
+		display: none;
+	}
+
+}
+
+@media (min-width: 420px) {
+	.side-bar-stack {
+		width: 320px;
+	}
+}
+
+@media (min-width: 1230px) {
+	.side-bar {
+		position: relative;
+		flex-basis: 320px;
+		order: 3;
+		width: auto;
+		flex-grow: 0;
+		border-left: solid 1px var(--col-light);
+	}
+}
+.side-bar-stack>* {
+	animation: from-right 0.2s ease;
+}
+.main-stack>* {
+	animation: fade 0.2s ease;
+}
+.header-stack>* {
+	animation: from-right 0.2s ease;
+}
+.from-bottom {
+	animation: from-bottom 0.2s ease;
+}

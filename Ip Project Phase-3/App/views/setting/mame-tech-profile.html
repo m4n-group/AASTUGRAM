@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Group - 7">
+   <base href="../../../../Ip Project Phase-3/"
+   <link rel="stylesheet" href="Resources/css/base.css">
+   <link rel="stylesheet" href="Resources/css/group-profile.css">
+   <title>Mame Tech Settings</title>
+</head>
+<body>
+   
+   <section>
+      <img src="Resources/images/svg/user.svg" class="group-icon">
+      <h2 class="group-name">Mame Tech</h2>
+      <p class="group-info">304 members.3 years ago</p>
+   </section>
+
+   <section class="details">
+
+      <span>Description</span>
+      <div class="option-box">
+         <p>New technological news every week with mohammed.</p>
+      </div>
+
+      <span>Contact</span>
+
+      <div class="option-box">
+         <img src="Resources/images/icons/email.svg" alt="">
+         <span>mametech@gmail.com</span>
+      </div>
+
+      <div class="option-box">
+         <img src="Resources/images/icons/phone.svg" alt="">
+         <span>0967348767</span>
+      </div>
+
+   </section>
+   
+   <section>
+      <div class="option-box" onclick="showPop('reportGroup')">
+         <img src="Resources/images/icons/report.svg" alt="">
+         <span>Report Group</span>
+      </div>
+      <div class="option-box" onclick="showPop('leaveGroup')">
+         <img src="Resources/images/icons/delete.svg" alt="">
+         <span>Leave Group</span>
+      </div>
+   </section>
+   
+   <section class="pop-holder-window" id="popHolderWindow">
+      <div class="pop-up-menu" id="reportGroup">
+         <span class="pop-up-title">Report Group</span>
+         <div class="pop-option-box">
+            <img src="Resources/images/icons/report.svg" class="option-icon">
+            <span class="option-label">fake account</span>
+         </div>
+         <div class="pop-option-box">
+            <img src="Resources/images/icons/report.svg" class="option-icon">
+            <span class="option-label">drug abuse</span>
+         </div>
+         <div class="pop-option-box">
+            <img src="Resources/images/icons/report.svg" class="option-icon">
+            <span class="option-label">pornography</span>
+         </div>
+         <div class="pop-option-box">
+            <img src="Resources/images/icons/report.svg" class="option-icon">
+            <span class="option-label">racism and hatespeech</span>
+         </div>
+      </div>
+   </section>
+<script>
+var openedPop;
+function showPop(id) {
+   document.getElementById(id).style.display = "flex";
+   document.getElementById("popHolderWindow").style.display = "flex";
+   openedPop = id;
+}
+function closePopWindow() {
+   document.getElementById(openedPop).style.display = "none";
+   document.getElementById("popHolderWindow").style.display = "none";
+}
+document.getElementById("popHolderWindow").setAttribute("onclick", "closePopWindow()");
+document.getElementById("reportGroup").onclick = function (e) {e.stopPropagation()};
+document.getElementById("leaveGroup").onclick = function (e) {e.stopPropagation()};
+</script>
+</body>
+</html>

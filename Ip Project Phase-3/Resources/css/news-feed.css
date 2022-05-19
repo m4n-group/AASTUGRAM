@@ -1,0 +1,170 @@
+.message-wrapper, .comment-wrapper {
+	width: 100%;
+	max-width: 500px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 10px;
+   padding: 10px 0;
+}
+.comment-wrapper {
+   padding:10px;
+   font-size: 14px;
+}
+
+.message-box {
+   width: fit-content;
+   max-width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   padding: 10px;
+   background-color: white;
+   gap: 10px;
+}
+.message-header {
+   max-width:100%;
+   display: flex;
+   align-items: center;   
+   gap:10px;
+}
+.message-header img {
+   height: 40px;
+   border-radius: 50%;
+}
+.sender-info > b{
+   width:100% ;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   text-transform: uppercase;
+   color: var(--col-primary);
+}
+.message-body {
+   position: relative;
+   display: block;
+}
+.message-body p, .message-body img,
+.message-body video {
+   display: block;
+   width: 100%;
+   max-width: 100%;
+   margin-bottom: 5px;
+   word-wrap: break-word;
+   color: rgb(87, 86, 86);
+}
+.sender-info {
+   width: calc(100% - 50px);
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   align-self: stretch;
+   justify-content: center;
+}
+.message-footer {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   gap: 5px;
+}
+.comment-box {
+   width: fit-content;
+   max-width:100%;
+   display: flex;
+   align-items: flex-end;
+   gap: 10px;
+}
+.comment-body {
+   width: fit-content;     
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   padding: 10px;
+   background-color: white;
+   border-radius: 5px 5px 5px 0;
+}
+.comment-box img {
+   height: 30px;
+   border-radius: 50%;
+}
+.commenter-info {
+   display: flex;
+   align-items: center;
+   gap : 10px;
+   width:100%;
+   color: var(--col-primary);
+}
+.commenter-info small  {
+   white-space: nowrap;
+   font-size: 12px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   color: #777;
+}
+.reaction {
+   display: flex;
+   align-items: center;
+   width: fit-content;
+   padding: 3px 6px;
+   gap: 5px;
+   border-radius: 5px;
+   background-color: var(--col-light);
+}
+.reaction img, .reaction svg {
+   height: 20px;
+   width: 20px;
+}
+.reaction span {
+   color: var(--col-primary);
+}
+.reaction > * {
+   cursor: pointer;
+}
+.reaction input:checked ~ * {
+   fill: var(--col-primary);
+}
+.reaction input {
+   display: none;
+}
+.edit-comment-box, .edit-message-box {
+   position: sticky;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 50px;
+   display: flex;
+   align-items: center;
+   padding:10px;
+   gap: 10px;
+   background-color: white;
+   box-shadow: 0 0 1px #777;
+}
+.edit-comment-box > label {
+   width: fit-content;
+   height: fit-content;
+}
+#commentField {
+   margin: 0;
+   outline: 0;
+   border: none;
+   background-color: rgb(255, 255, 255);
+   height: 100%;
+   flex-basis: 50%;
+   flex-grow: 1;
+   resize: none;
+   font-size: 14px;
+}
+.send, .edit-comment-box > svg {
+   height: 30px;
+   width: 30px;
+   padding: 3px;
+   border-radius: 5px;
+   transition: 0.3s;
+}
+.send:hover {
+   background-color: var(--col-light);
+}
+.edit-comment-box > svg:hover {
+   fill:var(--col-primary);
+   background-color: var(--col-light);
+ }
+   

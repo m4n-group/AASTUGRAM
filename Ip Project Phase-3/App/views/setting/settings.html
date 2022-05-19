@@ -1,0 +1,92 @@
+
+   <div class="profileBanner setting-list-container" >
+      <div class="profile-photo-container">
+         <img src="Resources/images/svg/user.svg" class="profile-picture">
+         <input type="file" id="chooseProfilePic" class="hidden-input">
+         <label for="chooseProfilePic"></label>
+      </div>
+      <h2 class="group-name">Mame Tech</h2>
+      <p class="group-info">304 members.3 years ago</p>
+   </div>
+
+   <div class="setting-list-container">
+      <div class="setting-box" id="appearanceSetting"  onclick="showPop('appearance')">
+         <img src="Resources/images/icons/appearance.svg" class="setting-icon" style="height: auto; width: 25px">
+         <span>Appearance</span>
+      </div>
+      <div class="setting-box">
+         <img src="Resources/images/icons/profile.svg" class="setting-icon">
+         <span>my profile</span>
+      </div>
+
+      <div class="setting-box"  id="askSetting" onclick="showPop('askQuestion')">
+         <img src="Resources/images/icons/ask.svg" class="setting-icon">
+         <span>Ask Question</span>
+      </div>
+      
+      <div class="setting-box" id="helpSetting" onclick="showPop('help')">
+         <img src="Resources/images/icons/help.svg" class="setting-icon">
+         <span>Help</span>
+      </div>
+   </div>
+
+   <section class="pop-holder-window" id="popHolderWindow">
+      <div class="pop-up-menu" id="appearance">
+         <span class="pop-up-title">Apperarance</span>
+         <p class="pop-section-title">Color Preference</p>
+         <div class="radio-box-hor">
+            <input type="radio" name="color" id="light" checked>
+            <label for="light">light</label>
+         </div>
+         <div class="radio-box-hor">
+            <input type="radio" name="color" id="dark">
+            <label for="dark">dark</label>
+         </div>
+         <p class="pop-section-title">Text Size</p>
+         <div class="radio-box-hor">
+            <input type="radio" name="textSize" id="small">
+            <label for="small">small</label>
+         </div>
+         <div class="radio-box-hor">
+            <input type="radio" name="textSize" id="medium" checked>
+            <label for="medium">medium</label>
+         </div>
+         <div class="radio-box-hor">
+            <input type="radio" name="textSize" id="large">
+            <label for="large">large</label>
+         </div>
+      </div>
+      <div class="pop-up-menu" id="help">
+         <span class="pop-up-title">Hlep</span>
+         <div class="pop-body">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+               Animi necessitatibus iste labore sapiente, impedit sunt.
+               Eos, fuga laboriosam? Voluptatem ducimus minima asperiores
+               incidunt nemo, itaque ad soluta quasi rem molestias illo
+               dignissimos eum earum exercitationem saepe quod dolorum laudantium?
+               Repellendus in magnam, distinctio vitae corrupti sed ipsam
+               impedit. Tempora.
+            </p>
+         </div>
+         <div class="pop-action-box">
+            <span class="pop-action-button" onclick='closePopWindow()'>close</span>
+         </div>
+      </div>
+   </section>
+<script>
+var openedPop;
+function showPop(id) {
+   document.getElementById(id).style.display = "flex";
+   document.getElementById("popHolderWindow").style.display = "flex";
+   openedPop = id;
+}
+function closePopWindow() {
+   document.getElementById(openedPop).style.display = "none";
+   document.getElementById("popHolderWindow").style.display = "none";
+}
+document.getElementById("popHolderWindow").setAttribute("onclick", "closePopWindow()");
+document.getElementById("appearance").onclick = function (e) {e.stopPropagation()};
+document.getElementById("help").onclick = function (e) {e.stopPropagation();};
+document.getElementById("askQuestion").onclick = function (e) {e.stopPropagation();};
+
+</script>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Group - 7">
+	<base href="../../../../Ip Project Phase-3/">
+	<link rel="shortcut icon" href="Resources/images/svg/app-icon.svg" type="image/x-icon">
+	<link rel="stylesheet" href="Resources/css/base.css">
+	<link rel="stylesheet" href="Resources/css/index.css">
+	<link rel="stylesheet" href="Resources/css/home.css">
+	<link rel="stylesheet" href="Resources/css/news-feed.css">
+	<link rel="stylesheet" href="Resources/css/create-group.css">
+
+	<link rel="stylesheet" href="Resources/css/profile.css">
+	<link rel="stylesheet" href="Resources/css/settings.css">
+
+	<link rel="stylesheet" href="Resources/css/animations.css">
+	<script src="Resources/js/base.js"></script>
+	<script src="Resources/js/functions.js"></script>
+	<script src="Resources/js/classes.js"></script>
+	<title id="pageTitle">Aastugram</title>
+</head>
+
+<body onload="">
+	<main style="z-index: 1;">
+		<div class="header-stack" id="headerStack">
+			<header id="mainHeader">
+				<div class="app-icon-container">
+					<img class="app-icon" src="Resources/images/svg/app-icon.svg" alt="">
+					<span class="app-icon-label">aastugram</span>
+				</div>
+				
+				<div class="search-box" id="searchBox">
+					<label class="search-field-container">
+						<input class="search" type="text" placeholder="SEARCH" size="1" id="searchQuery" onchange="forward(searchActivity), search(this.value, 'name')">
+						<img src="Resources/images/svg/search.svg" onclick="forward(searchActivity), search(searchQuery.vaue, 'name')">
+					</label>
+					<div class="magic-button" onclick=""></div>
+				</div>
+	
+				<div class="profile-box">
+					<span class="profile-label" id="headerProfileName">Abel Girma</span>
+					<img src="Resources/images/svg/user.svg" class="profile-icon" id="headerProfileIcon" onclick="sideBar.style.display='flex', setSideBarScreen('profileWindow')">
+					<img src="Resources/images/svg/ellypsis-vertical.svg" id="menu" class="profile-icon" onclick="showHideSideBar(),setSideBarScreen('settingsWindow')">
+				</div>
+			</header>
+			
+			<header id="searchHeader">
+				<div class="app-icon-container">
+					<img class="app-icon" src="Resources/images/svg/arrow-left.svg" onclick="back()">
+				</div>
+				
+				<div class="search-box" id="searchBox">
+					<label class="search-field-container">
+						<input class="search" type="text" placeholder="SEARCH" size="1" id="searchQuery1" onchange="forward(searchActivity), search(this.value, 'name')">
+						<img src="Resources/images/svg/search.svg" onclick="forward(searchActivity), search(searchQuery1.vaue, 'name')">
+					</label>
+					<div class="magic-button" onclick=""></div>
+				</div>
+	
+				<div class="profile-box">
+				</div>
+			</header>
+
+			<header id="myGroupHeader">
+				<div class="app-icon-container" style="flex-grow: 1">
+					<img class="app-icon" src="Resources/images/svg/arrow-left.svg" onclick="back()">
+					<img class="app-icon" src="Resources/images/my-group-icon.jpg" id="myGroupPhotoHeader" onclick="showHideSideBar(),setSideBarScreen('myGroupInfoWindow')">
+					<span class="app-icon-label" id="myGroupNameHeader">My group</span>
+				</div>
+				<div class="profile-box">
+					<img src="Resources/images/svg/ellypsis-vertical.svg" id="menu" class="profile-icon" onclick="setSideBarScreen('myGroupInfoWindow'), showHideSideBar()">
+				</div>
+			</header>
+
+			<header id="createGroupHeader">
+				<div class="app-icon-container alt-app-icon">
+					<img class="app-icon" src="Resources/images/svg/arrow-left.svg" onclick="back()">
+					<span class="app-icon-label">Create new group</span>
+				</div>
+
+				<div class="profile-box">
+					<img src="Resources/images/svg/ellypsis-vertical.svg" id="menu" class="profile-icon" onclick="setSideBarScreen('settingsWindow'), showHideSideBar()">
+				</div>
+
+			</header>
+
+			<header id="commentHeader">
+				<div class="app-icon-container">
+					<img class="app-icon" src="Resources/images/svg/arrow-left.svg" onclick="back(false)">
+					<span class="app-icon-label">Comments</span>
+				</div>
+
+				<div class="fake-search-box"></div>
+
+				<div class="profile-box">
+					<img src="Resources/images/svg/ellypsis-vertical.svg" id="menu" class="profile-icon" onclick="showHideSideBar()">
+				</div>
+			</header>
+
+			<header id="groupHeader">
+				<div class="app-icon-container alt-app-icon">
+					<img class="app-icon" src="Resources/images/svg/arrow-left.svg" onclick="back(false)">
+					<img class="app-icon" src="Resources/images/mame-icon.png" id="grpIcn" onclick="setSideBarScreen('groupInfoWindow'),showHideSideBar()">
+					<span class="app-icon-label" id="groupLabel">Mame Tech</span>
+				</div>
+					
+				<div class="profile-box">
+					<img src="Resources/images/svg/ellypsis-vertical.svg" id="menu" class="profile-icon" onclick="showHideSideBar()">
+				</div>
+			</header>
+		</div>
+	
+		<div class="main-stack" id="mainStack">
+			<div class="main-window" id="home" style="display: none;">
+				<h3 class="section-label">Featured News</h3>
+				<div class="news-wrapper" id="newsWrapper">
+				</div>
+
+				<h3 class="section-label">Featured Groups</h3>
+
+				<div class="main-wrapper" id="featuredGroupsWrapper">
+				</div>
+			</div>
+
+			<div class="main-window" id="newsFeed" style="display: none;background-color:var(--col-light);">
+				<h3 class="section-label" id="top" style="background-color:white">News Feed</h3>
+				<div class="message-wrapper" id="newsFeedWrapper">
+				</div>	
+			</div>
+			
+			<div class="main-window" id="searchView" style="display: none;">
+				<h3 class="section-label" id="searchLabel">results for your search</h3>
+				<div class="main-wrapper" id="searchWrapper">
+				</div>	
+			</div>
+
+			<div class="main-window" id="myGroupChat" style="display: none;background-color:var(--col-light);">
+				<div class="message-wrapper" id="myMessageWrapper">
+				</div>
+			</div>
+
+			<div class="main-window" id="comment" style="display: none;background-color: var(--col-light);">
+				<div class="comment-wrapper" id="commentWrapper">
+				</div>
+			</div>
+
+			<div class="main-window" id="explore" style="display: none;	background-color: white;">
+				<h3 class="section-label" id="top">Explore Your Campus</h3>
+				<div class="main-wrapper-top">
+					<div href="App/views/main/index.html#academicc" class="group-category-box">
+						<img src="Resources/images/academic.jpg">
+						<h2 onclick="forward(searchActivity), search('academic', 'category')">Academic</h2>
+						<p>7 groups</p> 
+					</div>
+					<div href="App/views/main/index.html#shopping" class="group-category-box">
+						<img src="Resources/images/shopping.jpg">
+						<h2 onclick="forward(searchActivity), search('shopping', 'category')">shopping</h2>
+						<p>5 groups</p> 
+					</div>
+					<div href="App/views/main/index.html#fun" class="group-category-box">
+						<img src="Resources/images/fun.jpg">
+						<h2 onclick="forward(searchActivity), search('fun and games', 'category')">fun and games</h2>
+						<p>5 groups</p> 
+					</div>
+					<div href="App/views/main/index.html#art" class="group-category-box">
+						<img src="Resources/images/art.jpg">
+						<h2 onclick="forward(searchActivity), search('arts and literature', 'category')">arts and literature</h2>
+						<p>6 groups</p> 
+					</div>
+					<div href="App/views/main/index.html#science" class="group-category-box">
+						<img src="Resources/images/science.jpg">
+						<h2 onclick="forward(searchActivity), search('scienceAndTech', 'category')">science and innovation</h2>
+						<p>2 groups</p> 
+					</div>
+					<div href="App/views/main/index.html#sport" class="group-category-box">
+						<img src="Resources/images/sport.jpg">
+						<h2 onclick="forward(searchActivity), search('sports', 'category')">sport</h2>
+						<p>5 groups</p> 
+					</div>
+					<div href="App/views/main/index.html#religion" class="group-category-box">
+						<img src="Resources/images/religious.jpg">
+						<h2 onclick="forward(searchActivity), search('religion', 'category')">religious</h2>
+						<p>3 groups</p> 
+					</div>
+					<div href="App/views/main/index.html#food" class="group-category-box">
+						<img src="Resources/images/food.jpg">
+						<h2 onclick="forward(searchActivity), search('food and drink', 'category')">food and drinks</h2>
+						<p>6 groups</p> 
+					</div>
+				</div>
+				<h3 class="category-list-label" id="academicc">Academic</h3>
+				<div class="main-wrapper" id="academic">   
+				</div>
+				<h3 class="category-list-label" id="shoppingg">Shopping</h3>
+				<div class="main-wrapper" id="shopping">
+				</div>
+				<h3 class="category-list-label" id="fun">fun and game</h3>
+				<div class="main-wrapper" id="fun and games">
+				</div>
+				<h3 class="category-list-label" id="arts">arts and literature</h3>
+				<div class="main-wrapper" id="arts and literature">
+				</div>
+				<h3 class="category-list-label" id="science">science and tech</h3>
+				<div class="main-wrapper" id="scitech">
+				</div>
+				<h3 class="category-list-label" id="sport">sport</h3>
+				<div class="main-wrapper" id="sports">
+				</div>
+				<h3 class="category-list-label" id="religious">religious</h3>
+				<div class="main-wrapper" id="religion">
+				</div>
+				<h3 class="category-list-label" id="food">food and drinks</h3>
+				<div class="main-wrapper" id="food and drink">
+				</div>
+				<div class="action-button"><a href="App/views/main/explore.html#top">TOP</a></div>
+			</div>
+
+			<div class="main-window" id="groups" style="display: none;">
+				<h3 class="section-label">Groups you Created</h3>
+   
+				<div class="main-wrapper" id="ownGroupsWrapper">
+
+					<div class="group-preview-box">
+						<img src="Resources/images/my-group-icon.jpg">
+						<div class="group-info">
+							<h3>My Group</h3>
+							<span>public group | 32 members</span>
+						</div>
+						<button class="join-group" onclick="forward(myGroupActivity)">Edit</button>
+					</div>
+
+				</div>   
+				
+				<h3 class="section-label">Groups You Joined</h3>
+			
+				<div class="main-wrapper" id="joinedGroupsWrapper">
+
+					<div class="group-preview-box">
+						<img src="Resources/images/mame-icon.png" id="mame">
+						<div class="group-info">
+							<h3>mame tech</h3>
+							<span>202 members</span>
+						</div>
+						<button class="join-group" onclick="forward(groupActivity)">VIEW</button>
+					</div>
+			
+				</div>
+			</div>
+
+			<div class="main-window" id="createGroup" style="display: none; background-color: white;">
+				<form class="main-container" name="createGroupForm">
+					<div class="profileBanner section">
+						<div class="profile-photo-container">
+							<img src="Resources/images/svg/user.svg" class="profile-picture" id="myGroupPhoto">
+							<input type="file" id="chooseGroupPhoto" class="hidden-input" accept="image/*" onchange='gPhoto = myGroupPhoto.src = "Resources/images/" + this.files[0].name'>
+							<label for="chooseGroupPhoto"></label>
+						</div>
+					</div>
+					
+					<label for="groupName">Group name</label>
+					<input class="text-input" type="text" name="groupName" id="groupName" required>
+		
+					<label for="discripton">Discription</label>
+					<textarea class="text-input" name="description" id="description"
+						rows="3" placeholder="say something about the group" required></textarea>
+
+					<span class="section-title">category</span>					
+					<div class="radio-box-wrapper" id="categoryBox">
+						<label class="radio-box">
+							<input type="radio" name="category" value="academic" required>
+							<span class="custom-radio"></span>
+							<span for="academic">Academic</span>
+						</label>
+						<label class="radio-box">
+							<input type="radio" name="category" value="shopping">
+							<span class="custom-radio"></span>
+							<span for="shopping">Shopping</span>
+						</label>
+						<label class="radio-box">
+							<input type="radio" name="category" value="funAndGame">
+							<span class="custom-radio"></span>
+							<span for="funAndGame">Fun and Games</span>
+						</label>
+						<label class="radio-box">
+							<input type="radio" name="category" value="artsAndLiterature">
+							<span class="custom-radio"></span>
+							<span for="artsAndLiterature">Arts and Literature</span>
+						</label>
+						<label class="radio-box">
+							<input type="radio" name="category" value="scienceAndTech">
+							<span class="custom-radio"></span>
+							<span for="scienceAndTech">Science and Tech</span>
+						</label>
+						<label class="radio-box">
+							<input type="radio" name="category" value="sport">
+							<span class="custom-radio"></span>
+							<span for="sport">Sport</span>
+						</label>
+						<label class="radio-box">
+							<input type="radio" name="category" value="religious">
+							<span class="custom-radio"></span>
+							<span for="religious">Religious</span>
+						</label>
+						<label class="radio-box">
+							<input type="radio" name="category" value="foodAndDrink">
+							<span class="custom-radio"></span>
+							<span for="foodAndDrink">Food and Drinks</span>
+						</label>
+					</div>
+				
+					<!--span class="section-title">Admin Contact</span>
+					<label for="admEmail">E-mail</label>
+					<input class="text-input" type="email" name="admEmail" id="admEmail">
+					<label for="admPhone">Phone</label>
+					<input class="text-input" type="tel" name="admPhone" id="admPhone"-->
+					<button type="reset" onclick="validateNewGroup()" class="finish">finish</button>
+				</form>			
+			</div>
+
+			<script>
+			var gPhoto = "Resources/images/svg/people.svg";
+			const validateNewGroup = () => {
+				var groupName = document.forms["createGroupForm"]["groupName"].value;
+				if (!groupName) {alert('group name is required'); return false;}
+				var description = document.forms["createGroupForm"]["description"].value;
+				if (!description) {alert('description is required'); return false;}
+				var category = document.forms["createGroupForm"]["category"].value;
+				var admPhone = curUser.phone; //document.forms["createGroupForm"]["admPhone"].value;
+				var admEmail = curUser.email; //document.forms["createGroupForm"]["admEmail"].value;
+				var id = curUser.email.substring(0, 7) + curUser.ownGroups.length;
+				var newGroup =  {
+					id:id,
+					gname:groupName,
+					description:description,
+					category:category,
+					admEmail:admEmail,
+					admPhone:admPhone,
+					photo:gPhoto,
+					members:[]
+				};
+				groupList[newGroup.id] = newGroup;
+				chatList[newGroup.id] = [];
+				curUser.ownGroups.push(newGroup.id);
+				activeGroup = newGroup;
+				saveChanges();
+				alert("successfully created a new group");
+				setTimeout(function () {forward(myGroupActivity)}, 1000);
+				return true;
+			}
+			</script>
+
+			<div class="main-window" id="groupChat" style="display: none;background-color:var(--col-light);">
+				<div class="message-wrapper" id="messageWrapper">
+				</div>
+			</div>
+
+		</div>
+
+		<div class="footer-stack" id="footerStack">
+			
+			<div class="edit-comment-box" id="messageEditor" style="display: none;">
+				<label>
+					<input type="file" class="hidden-input" id="attachFile" onchange="addMediaContent('Resources/images/'+this.files[0].name), send(messageContents)">
+					<img src="Resources/images/svg/clip.svg" class="send">
+				</label>
+				<input type="text" id="editMessageField" placeholder="share your idea" style="flex-grow: 1;" onchange="addContent(this.value),send(messageContents)" autofocus>
+				<img src="Resources/images/svg/send.svg" class="send" onclick="addContent(editMessageField.value), send(messageContents)">
+			</div>
+
+			<div class="edit-comment-box" id="commentEditor" style="display: none;">
+
+				<input type="text" id="commentField" placeholder="write your comments here" onchange="comment()" autofocus>
+				<img src="Resources/images/svg/send.svg" class="send" onclick="comment()">
+
+			</div>
+
+		</div>
+	</main>
+
+	<section class="side-bar" id="sideBar" style="display: none;z-index: 3;" onclick="showHideSideBar()">
+		<div class="side-bar-stack" id="sideBarStack">
+			<div class="side-bar-window" id="settingsWindow">
+				<div class="side-header">
+					<span>settings</span>
+					<img src="Resources/images/svg/close.svg"  onclick="sideBar.style.display = 'none'">
+				</div>
+
+				<div class="profileBanner section">
+					<div class="profile-photo-container">
+						<img src="Resources/images/abelGirma.jpg" class="profile-picture" id="setPh">
+						<input type="file" id="chooseProfilePic" class="hidden-input" accept="image/*" oninput="setPh.src = curUser.photo = 'resources/images/' + this.files[0].name, saveChanges(), mainLoader()">
+						<label for="chooseProfilePic"></label>
+					</div>
+					<h2 id="setName">Abel Girma</h2>
+				</div>
+
+				<div class="section" style="flex-grow:1">
+					<!--div class="setting-box" id="appearanceSetting">
+						<img src="Resources/images/svg/star.svg" class="setting-icon">
+						<span style="flex-grow: 1;">text message size</span>
+						<label class="toggle-button"><input type="checkbox" name="darkMode" id="darkMode"><div></div></label>
+					</div-->
+					<div class="setting-box" onclick="setSideBarScreen('profileWindow')">
+						<img src="Resources/images/svg/user.svg" class="setting-icon">
+						<span>my profile</span>
+					</div>
+
+					<div class="setting-box" id="askSetting" onclick="setSideBarScreen('askQuestionWindow')">
+						<img src="Resources/images/svg/help.svg" class="setting-icon">
+						<span>Ask Question</span>
+					</div>
+
+					<div class="setting-box" id="helpSetting">
+						<img src="Resources/images/svg/favourite.svg" class="setting-icon">
+						<span>Help</span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="side-bar-window" id="reportWindow" style="display: none;">
+				<div class="side-header">
+					<img src="Resources/images/svg/arrow-left.svg" onclick="setSideBarScreen('groupInfoWindow')">
+					<span>Report Group</span>
+				</div>
+
+				<div class="section" style="flex-grow:1">
+					<span>Speicify your Reason</span>
+					<div class="setting-box" id="appearanceSetting" onclick="closeSideBar()">
+						<img src="Resources/images/svg/spam.svg" class="setting-icon">
+						<span>Fake Account</span>
+					</div>
+					<div class="setting-box" onclick="closeSideBar()">
+						<img src="Resources/images/svg/danger.svg" class="setting-icon">
+						<span>Drug Abuse</span>
+					</div>
+
+					<div class="setting-box" id="askSetting" onclick="closeSideBar()">
+						<img src="Resources/images/svg/danger.svg" class="setting-icon">
+						<span>Pornography</span>
+					</div>
+
+					<div class="setting-box" id="helpSetting"onclick="closeSideBar()">
+						<img src="Resources/images/svg/skull.svg" class="setting-icon">
+						<span>Racism and Hatespeech</span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="side-bar-window" id="groupInfoWindow" style="display: none;">
+				<div class="side-header">
+					<span id="grpInfoTitle">Mame Tech</span>
+					<img src="Resources/images/svg/close.svg" onclick="sideBar.style.display = 'none'">
+				</div>
+
+				<div class="profileBanner section">
+					<div class="profile-photo-container">
+						<img src="Resources/images/mame-icon.png" id="grpInfoIcn" class="profile-picture">
+					</div>
+					<h2 id="grpInfoName">Mame Tech</h2>
+					<p id="grpInfoMembers">304 members</p>
+				</div>
+
+				<div class="section">
+					<span>Description</span>
+					<div class="setting-box">
+						<p id="grpInfoDescription">New technological news every week with mohammed.</p>
+					</div>
+
+					<span>Contact</span>
+
+					<div class="setting-box">
+						<img src="Resources/images/svg/envelope-alt.svg">
+						<span id="grpInfoEmail">mametech@gmail.com</span>
+					</div>
+
+					<div class="setting-box">
+						<img src="Resources/images/svg/phone.svg">
+						<span id="grpInfoPhone">0967348767</span>
+					</div>
+										
+				</div>
+
+				<div class="section" id="grpInfoSection">
+				</div>
+
+				<div class="section" style="flex-grow: 1">
+					<div class="setting-box" onclick="setSideBarScreen('reportWindow')">
+						<img src="Resources/images/svg/danger.svg" alt="">
+						<span>Report Group</span>
+					</div>
+					<div class="setting-box" onclick="showPop('leaveGroup')">
+						<img src="Resources/images/svg/bin.svg">
+						<span>Leave Group</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="side-bar-window" id="profileWindow" style="display: none;">
+				<div class="side-header">
+					<img src="Resources/images/svg/arrow-left.svg" onclick="setSideBarScreen('settingsWindow')">
+					<span>Edit profile</span>
+					<img src="Resources/images/svg/close.svg" onclick="sideBar.style.display = 'none'">
+				</div>
+
+				<div class="profileBanner section">
+					<div class="profile-photo-container">
+						<img src="Resources/images/abelGirma.jpg" class="profile-picture" id="editPhoto" >
+						<input type="file" id="chooseProfilePic" class="hidden-input" oninput='curUser.photo = "Resources/images/" + this.files[0].name, mainLoader()'>
+						<label for="chooseProfilePic"></label>
+					</div>
+					<h2 id="profName">Abel Girma</h2>
+				</div>
+
+				<div class="section">
+					<div class="field-container">
+						<img src="Resources/images/svg/user.svg" class="field-icon">
+						<label class="field-input-container">
+							<span>First Name</span>
+							<input type="text" value="Abel" class="field-input" id="editFname" onchange="curUser.fname= this.value, mainLoader()">
+						</label>
+					</div>
+
+					<div class="field-container">
+						<img src="Resources/images/svg/user.svg" class="field-icon off">
+						<label class="field-input-container">
+							<span>Last Name</span>
+							<input type="text" value="Girma" class="field-input" id="editLname" onchange="curUser.lname= this.value,mainLoader()">
+						</label>
+					</div>
+
+					<div class="field-container">
+						<img src="Resources/images/svg/phone.svg" class="field-icon">
+						<label class="field-input-container">
+							<span>Phone</span>
+							<input type="tel" value="0989766709" class="field-input" id="editPhone" onchange="curUser.phone= this.value,mainLoader()">
+						</label>
+					</div>
+
+					<div class="field-container" onclick="setSideBarScreen('changePasswordWindow')">
+						<img src="Resources/images/svg/lock-alt.svg" class="field-icon">
+						<label class="field-input-container">
+							<span>Password</span>
+							<!--input type="password" value="pass123"-->
+						</label>
+					</div>
+
+				</div>
+
+				<div class="section" id="joinedGrpsSection">
+
+				</div>
+
+				<div class="section" style="flex-grow: 1;">
+					<div class="field-container" onclick="showPop('logout')">
+						<img src="Resources/images/svg/exit.svg" class="field-icon">
+						<label class="field-input-container">
+							<span>Logout</span>
+						</label>
+					</div>
+					<div class="field-container" onclick="showPop('deleteAccount')">
+						<img src="Resources/images/svg/bin.svg" class="field-icon">
+						<label class="field-input-container">
+							<span>Delete Account</span>
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="side-bar-window" id="changePasswordWindow" style="display: none;">
+				<div class="side-header">
+					<img src="Resources/images/svg/arrow-left.svg" onclick="setSideBarScreen('profileWindow')">
+					<span>Change Password</span>
+				</div>
+
+				<div class="section" style="flex-grow: 1;">
+					<div class="field-container">
+						<img src="Resources/images/svg/lock-alt.svg" class="field-icon">
+						<label class="field-input-container">
+							<span>old password</span>
+							<input type="password" id="old" placeholder="old" class="field-input">
+						</label>
+					</div>
+
+					<div class="field-container">
+						<img src="Resources/images/svg/user.svg" class="field-icon off">
+						<label class="field-input-container">
+							<span>new password</span>
+							<input type="password" id="newP" placeholder="new"  class="field-input">
+						</label>
+					</div>
+
+					<div class="field-container">
+						<img src="Resources/images/svg/phone.svg" class="field-icon off">
+						<label class="field-input-container">
+							<span>confirm new password</span>
+							<input type="password" id="confirmNew" placeholder="confirm" class="field-input">
+						</label>
+					</div>
+
+					<span style="margin-top: 20px" onclick="validatePasswordChange()">save changes</span>
+				</div>
+				<script>
+					function validatePasswordChange() {
+						if (old.value != curUser.password) {
+							alert("wrong password entered");
+						}
+						else if (newP.value != confirmNew.value ) {
+							alert("the passwords do not match!");
+						}
+						else {
+							curUser.password = newP.value;
+							alert('successfully changed password');
+							back();
+						}
+					}
+				</script>
+			</div>
+
+			<div class="side-bar-window" id="myGroupInfoWindow" style="display: none;">
+				<div class="side-header">
+					<span id="myGroupSideHeader">My group</span>
+					<img src="Resources/images/svg/close.svg" onclick="sideBar.style.display = 'none'">
+				</div>
+
+				<div class="profileBanner section">
+					<div class="profile-photo-container">
+						<img src="Resources/images/myGroupBg.png" class="profile-picture" id="myGroupPhotoEdit">
+						<input type="file" id="chooseMyGroupPhoto" class="hidden-input" onchange="activeGroup.photo = 'Resources/images/'+this.files[0].name, myGroupLoader()">
+						<label for="chooseMyGroupPhoto"></label>
+					</div>
+					<h2 id="myGroupNameLabel">My Group</h2>
+					<p id="myGroupMembers">200 members</p>
+				</div>
+
+				<div class="section">
+					<div class="field-container">
+						<img src="Resources/images/svg/user.svg" class="field-icon">
+						<label class="field-input-container">
+							<span>Group Name</span>
+							<input class="field-container-input" type="text" value="My Group" id="myGroupNameEdit" onchange="activeGroup.gname = this.value">
+						</label>
+					</div>
+
+					<span class="section-title">Discription</span>
+
+					<div class="field-container">
+						<label class="field-input-container">
+							<textarea class="field-container-input" cols="20" rows="4" id="myGroupDescriptionEdit" onchange="activeGroup.description = this.innerHTML">We will talk about campus life experiances and we will interview students also.</textarea>
+						</label>
+					</div>
+
+					<span class="section-title">Contact</span>
+
+					<div class="field-container">
+						<img src="Resources/images/svg/phone.svg" class="field-icon">
+						<label class="field-input-container">
+							<span>Phone</span>
+							<input class="field-container-input" type="tel" value="4389389430" id="myGroupPhoneEdit" readonly>
+						</label>
+					</div>
+
+					<div class="field-container">
+						<img src="Resources/images/svg/envelope-alt.svg" class="field-icon">
+						<label class="field-input-container">
+							<span>E-mail</span>
+							<input class="field-container-input" type="email" value="abelgirma@gamil.com" id="myGroupEmailEdit" readonly>
+						</label>
+					</div>
+				</div>
+
+				<div class="section" id="myGrpInfoSection">
+
+				</div>
+
+				<div class="section" style="flex: grow 1;">
+					<div class="field-container" style="align-items: center" onclick="showPop('deleteGroup')">
+						<img src="Resources/images/svg/bin.svg" class="field-icon" alt="">
+						<span>Delete Group</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="side-bar-window" id="askQuestionWindow" style="display: none;">
+				<div class="side-header">
+					<img src="Resources/images/svg/arrow-left.svg" onclick="setSideBarScreen('settingsWindow')">
+					<span>ask question</span>
+				</div>
+				<div class="section">
+
+					<span class="section-title">describe your question</span>
+
+					<div class="field-container">
+						<label class="field-input-container">
+							<textarea class="text-input" cols="30" rows="4" name="questionField"></textarea>
+						</label>
+					</div>
+					<span class="save-changes" onclick="setSideBarScreen('settingsWindow')">submit</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="side-nav" id="navBar" style="z-index: 2;"> 
+		<nav id="nav">
+			<input class="hidden-input" type="radio" name="tab" id="homeTab" checked>
+			<label for = "homeTab" class="nav-icon-container" onclick="forward(homeActivity)">
+				<img src="Resources/images/svg/home-alt2.svg" class="nav-icon">
+				<span class="nav-icon-label">Home</span>
+			</label>
+			<input class="hidden-input" type="radio" name="tab" id="newsTab">
+			<label for = "newsTab" class="nav-icon-container" onclick="forward(newsActivity)">
+				<img src="Resources/images/svg/news.svg" class="nav-icon">
+				<span class="nav-icon-label">News&nbspFeed</span>
+			</label>
+			<input class="hidden-input" type="radio" name="tab" id="exploreTab">
+			<label for = "exploreTab" class="nav-icon-container" onclick="forward(exploreActivity)">
+				<img src="Resources/images/svg/explore.svg" class="nav-icon">
+				<span class="nav-icon-label">Explore</span>
+			</label>
+			<input class="hidden-input" type="radio" name="tab" id="groupsTab">
+			<label for = "groupsTab" class="nav-icon-container" onclick="forward(groupsActivity)">
+				<img src="Resources/images/svg/people.svg" class="nav-icon">
+				<span class="nav-icon-label">Groups</span>
+			</label>
+			<div class="nav-icon-container" onclick="forward(createGroupActivity)">
+				<img src="Resources/images/svg/add.svg" class="nav-icon">
+				<span class="nav-icon-label">Create&nbspnew&nbspgroup</span>
+			</div>
+		</nav>
+	</section>
+
+   <section class="pop-holder-window" id="popHolderWindow" onclick="popHolderWindow.style.display = 'none';" style="z-index: 4;">
+      <div class="pop-up-menu" id="deleteGroup" >
+         <span class="pop-up-title">Delete Group</span>
+         <p class="pop-up-text">Are you sure to delete this group?</p>
+         <div class="pop-action-box">
+            <span class="pop-action-button">Cancel</span>
+            <span class="pop-action-button red" onclick="deleteGroup(),closePopWindow(),closeSideBar(), back()">Yes</span>
+         </div>
+      </div>
+		<div class="pop-up-menu" id="deleteAccount">
+         <span class="pop-up-title">Delete Account</span>
+         <p class="pop-up-text">Are you sure to delete your account?</p>
+         <div class="pop-action-box">
+            <span class="pop-action-button" onclick="closePopWindow()">cancel</span>
+            <span class="pop-action-button red"><a target="_top" href="App/views/auth/sign-up.html">yes</a></span>
+         </div>
+      </div>
+		<div class="pop-up-menu" id="leaveGroup">
+         <span class="pop-up-title">Leave Group</span>
+         <p class="pop-up-text">Are you sure you want to leave this group?</p>
+         <div class="pop-action-box">
+            <span class="pop-action-button" onclick="closePopWindow()">Cancel</span>
+            <span class="pop-action-button red" onclick="leaveGroup(), closePopWindow()">Yes</span>
+         </div>
+      </div>
+		<div class="pop-up-menu" id="logout">
+         <span class="pop-up-title">Logout</span>
+         <p class="pop-up-text">Are you sure you want to logout?</p>
+         <div class="pop-action-box">
+            <span class="pop-action-button" onclick="closePopWindow()">Cancel</span>
+            <a href="App/views/auth/login.html" class="pop-action-button red">Yes</a>
+         </div>
+      </div>
+   </section>
+<script>
+var users = JSON.parse(localStorage.getItem('users'));
+var groupList = JSON.parse(localStorage.getItem('groupList'));
+var chatList = JSON.parse(localStorage.getItem('chatList'));
+var curUser = users[localStorage.getItem('curUser')];
+var openedPop;
+var activeGroup = groupList['news'];
+var activeMessage;
+var messageContents = [];
+var activeChat;
+
+document.getElementById("deleteAccount").onclick = function (e) {e.stopPropagation()};
+document.getElementById("leaveGroup").onclick = function (e) {e.stopPropagation()};
+document.getElementById("deleteGroup").onclick = function (e) {e.stopPropagation()};
+document.getElementById("settingsWindow").onclick = function (e) {e.stopPropagation()};
+document.getElementById("reportWindow").onclick = function (e) {e.stopPropagation()};
+document.getElementById("groupInfoWindow").onclick = function (e) {e.stopPropagation()};
+document.getElementById("changePasswordWindow").onclick = function (e) {e.stopPropagation()};
+document.getElementById("myGroupInfoWindow").onclick = function (e) {e.stopPropagation()};
+document.getElementById("askQuestionWindow").onclick = function (e) {e.stopPropagation()};
+document.getElementById("profileWindow").onclick = function (e) {e.stopPropagation()};
+
+var newsWrapper = document.getElementById('newsWrapper');
+var commentField = document.getElementById("commentField");
+var commentWrapper = document.getElementById('commentWrapper');
+
+var sideBar = document.getElementById('sideBar');
+var navBar = document.getElementById('navBar');
+var footer = document.getElementById('footerStack');
+
+forward(homeActivity);
+mainLoader();
+</script>
+</body>
+
+</html>

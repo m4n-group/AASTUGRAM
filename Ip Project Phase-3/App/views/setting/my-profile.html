@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Group - 7">
+   <base href="../../../../Ip Project Phase-3/"
+   <link rel="stylesheet" href="Resources/css/base.css">
+   <link rel="stylesheet" href="Resources/css/profile.css">
+   <title>Abel Girma</title>
+</head>
+<body>
+
+   <section>
+      <img src="Resources/images/svg/user.svg" class="profile-picture">
+      <input type="file" form="edit-profile" name="inputProfile" id="inputProfile" class="hidden-input" required>
+      <label for="inputProfile"class="pro-pic-label">change profile picture</label>
+   </section>
+
+   <form action="" name="edit-profile">
+      <div class="field-container">
+         <img src="Resources/images/svg/user.svg" class="field-icon">
+         <label class="field-input-container">
+            <span>First Name</span>
+            <input type="text" value="Abel">
+         </label>
+      </div>
+
+      <div class="field-container">
+         <img src="Resources/images/svg/user.svg" class="field-icon off">
+         <label class="field-input-container">
+            <span>Last Name</span>
+            <input type="text" value="Girma">
+         </label>
+      </div>
+
+      <div class="field-container">
+         <img src="Resources/images/icons/phone.svg" class="field-icon">
+         <label class="field-input-container">
+            <span>Phone</span>
+            <input type="tel" value="0989766709">
+         </label>
+      </div>
+
+      <div class="field-container">
+         <img src="Resources/images/icons/campus.svg" class="field-icon">
+         <label class="field-input-container">
+            <span>Department</span>
+            <select required="required" style="appearance: none;">
+               <optgroup label="College of Architecture and Civil Engineering">
+                  <option>Archtecture</option>
+                  <option>Civil Engineering</option>
+                  <option>Mining Engineering</option>
+               </optgroup>
+               <optgroup label="College of Electrical and Mechanical Engineering">
+                  <option>Electrical and Computer Engineerng</option>
+                  <option>Electromechanical Engineering</option>
+                  <option>Mechanical Engineering</option>
+                  <option selected>Software Engineering</option>
+               </optgroup>
+               <optgroup label="College of Biological and Chemical Engineering" >
+                  <option>Biotechnology</option>
+                  <option>Chemical Engineering</option>
+                  <option>Environmental Engineering</option>
+               </optgroup>
+               <optgroup label="College of Applied Sciences" >
+                  <option>Geology</option>
+                  <option>Industrial Chemistry</option>
+                  <option>Food Science and Applied Nutrition</option>
+               </optgroup>
+               <optgroup label="College of Natural and Social Sciences">
+                  <option>Mathematics</option>
+                  <option>Language</option>
+                  <option>Physics ans Statistics</option>
+                  <option>Pre-engineering</option>
+                  <option>Social Sciences</option>
+               </optgroup>
+            </select>   
+         </label>
+      </div>
+
+      <div class="field-container">
+         <img src="Resources/images/svg/user.svg" class="field-icon off">
+         <label class="field-input-container">
+            <span>Year</span>
+            <select name="year" id="year" style="appearance: none;">
+               <option value="freshman">Freshman</option>
+               <option value="sophomore">Sophomore</option>
+               <option value="junior" selected>Junior</option>
+               <option value="senior">Senior</option>
+               <option value="gc">GC</option>
+            </select>
+         </label>
+      </div>
+
+      <div class="field-container" onclick="showPop('changePassword')">
+         <img src="Resources/images/icons/padlock.svg" class="field-icon">
+         <label class="field-input-container">
+            <span>Password</span>
+            <!--input type="password" value="pass123"-->
+         </label>
+      </div>
+
+      <div class="field-container">
+         <img src="Resources/images/icons/.svg" class="field-icon off">
+         <label class="field-input-container">
+            <button type="submit" value="SAVE CHANGES" style="padding: 5px 10px;font-weight: bold;border-radius: 5px;">SAVE CHANGES</button>
+         </label>
+      </div>
+
+   </form>
+
+   <section class="general-options">
+      <div class="field-container" onclick="showPop('deleteAccount')">
+         <img src="Resources/images/icons/trash-can.svg" class="field-icon">
+         <label class="field-input-container">
+            <span>Delete Account</span>
+         </label>
+      </div>
+   </section>
+   <section class="pop-holder-window" id="popHolderWindow">
+      <div class="pop-up-menu" id="changePassword">
+         <span class="pop-up-title">change password</span>
+         <div class="pop-input-box"> 
+            <label for="oldPassword">old password</label><input type="password" name="" id="oldPassword">
+         </div>
+         <div class="pop-input-box"> 
+            <label for="newPassword">new password</label><input type="password" name="" id="newPassword">
+         </div>
+         <div class="pop-input-box"> 
+            <label for="confirmPassword"></label>confirm new password<input type="password" name="" id="confirmPassword">
+         </div>
+         <div class="pop-action-box">
+            <span class="pop-action-button" onclick="closePopWindow">SAVE</span>
+         </div>
+      </div>
+   </section>
+<script>
+   var openedPop;
+   function showPop(id) {
+      document.getElementById(id).style.display = "flex";
+      document.getElementById("popHolderWindow").style.display = "flex";
+      openedPop = id;
+   }
+   function closePopWindow() {
+      document.getElementById(openedPop).style.display = "none";
+      document.getElementById("popHolderWindow").style.display = "none";
+   }
+   document.getElementById("popHolderWindow").setAttribute("onclick", "closePopWindow()");
+   document.getElementById("changePassword").onclick = function (e) {e.stopPropagation()};
+   document.getElementById("deleteAccount").onclick = function (e) {e.stopPropagation()};
+   </script>      
+</body>
+</html>

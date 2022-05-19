@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Group - 7">
+   <base href="../../../../Ip Project Phase-3/"
+   <link rel="stylesheet" href="Resources/css/base.css">
+   <link rel="stylesheet" href="Resources/css/my-group-profile.css">
+   <title>My Group Settings</title>
+</head>
+<body>
+
+   <section>
+      <img src="Resources/images/svg/user.svg" class="profile-picture">
+      <h2 class="group-name">My Group</h2>
+      <p class="group-info">200 members. 6 months ago</p>
+   </section>
+
+   <form action="">
+      <div class="field-container">
+         <img src="Resources/images/svg/user.svg" class="field-icon">
+         <label class="field-input-container">
+            <span>Group Name</span>
+            <input class="field-container-input" type="text" value="My Group">
+         </label>
+      </div>
+      <div class="field-container">
+         <img src="Resources/images/svg/user.svg" class="field-icon off">
+         <label class="field-input-container">
+            <span>Profile Picture</span>
+            <input type="file" class="hidden-input">
+         </label>
+      </div>
+      <span class="section-title">Description</span>
+      <div class="field-container">
+         <label class="field-input-container">   
+            <textarea class="field-container-input" cols="20" rows="3">We will talk about campus life experiances and we will interview students also.</textarea>
+         </label>
+      </div>
+
+      <span class="section-title">Contact</span>
+
+      <div class="field-container">
+         <img src="Resources/images/icons/phone.svg" style="width:auto ; height: 30px" class="field-icon">
+         <label class="field-input-container">
+            <span>Phone</span>
+            <input class="field-container-input" type="tel" value="4389389430">
+         </label>
+      </div>
+      <div class="field-container">
+         <img src="Resources/images/icons/email.svg" class="field-icon">
+         <label class="field-input-container">
+            <span>E-mail</span>
+            <input class="field-container-input" type="email" value="abelgirma@gamil.com">
+         </label>
+      </div>
+
+   </form>
+   <section>
+      <div
+         class="field-container"
+         style="align-items:center;"
+         onclick="showPop('deleteGroup')">
+         <img src="Resources/images/icons/delete.svg" class="field-icon" alt="">
+         <span>Delete Group</span>
+      </div>
+   </section>
+   <section class="pop-holder-window" id="popHolderWindow">
+      <div class="pop-up-menu" id="deleteGroup">
+         <span class="pop-up-title">Delete Group</span>
+         <p class="pop-up-text">Are you sure to delete this group?</p>
+         <div class="pop-action-box">
+            <span class="pop-action-button">Cancel</span>
+            <span class="pop-action-button red">Yes</span>
+         </div>
+      </div>
+   </section>
+<script>
+var openedPop;
+function showPop(id) {
+   document.getElementById(id).style.display = "flex";
+   document.getElementById("popHolderWindow").style.display = "flex";
+   openedPop = id;
+}
+function closePopWindow() {
+   document.getElementById(openedPop).style.display = "none";
+   document.getElementById("popHolderWindow").style.display = "none";
+}
+document.getElementById("popHolderWindow").setAttribute("onclick", "closePopWindow()");
+document.getElementById("deleteGroup").onclick = function (e) {e.stopPropagation()};
+</script>
+</body>
+</html>

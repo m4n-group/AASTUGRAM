@@ -1,0 +1,113 @@
+.main-container {
+   width: 100%;
+   max-width: 500px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   padding: 10px 10px 20px;
+   gap: 5px;
+   background-color: white;
+}
+.profile-pic {
+   width: 100px;
+   align-self: center;
+   margin: 10px;
+   background-color: white;
+   border-radius: 50%;
+   padding: 10px;
+}
+.pro-pic-label {
+   align-self: center;
+   padding: 5px 15px;
+   background-color: #89428E;
+   font-size: 18px;
+   font-weight: bolder;
+   color: white;
+   border-radius: 50px;
+   text-transform: uppercase;
+}
+.section-title {
+   color: var(--col-primary);
+   margin: 10px 0 5px;
+   font-size: 16px;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+.main-container label {
+   font-weight: bold;
+   font-size: 14px;
+}
+.text-input {
+   min-width: 150px;
+   padding: 5px;
+   border: solid 1px #3332;
+   border-radius: 5px;
+   font-size: 14px;
+   transition: 0.2s ease;
+}
+.text-input:hover, .text-input:focus{
+   border-color: var(--col-primary);
+   box-shadow: 0 0 2px #3338;
+}
+.radio-box-wrapper {
+   align-self: stretch;
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 5px;
+}
+.radio-box {
+   width: fit-content;
+   max-width: 100%;
+   height: auto;
+   flex-basis: content;
+   flex-grow: 0;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   padding: 5px 10px 5px 5px;
+   background-color: white;
+   border-radius: 5px;
+   box-shadow: 0 0 2px #3338;
+}
+div#categoryBox > *{
+   flex-basis: content;
+   flex-shrink: 0;
+   flex-grow: 1;
+}
+.radio-box:hover .custom-radio{
+   background-color:#3727c988;
+}
+.custom-radio {
+   background-clip: content-box;
+   padding: 2px;
+   height: 20px;
+   width: 20px;
+   border: solid 2px #3727c9;
+   border-radius: 5px;
+}
+.radio-box > input {
+   position:absolute;
+   visibility: hidden;
+}
+
+.radio-box > input:checked ~ .custom-radio {
+   background-color:#3727c9;
+}
+.radio-box > span {
+   overflow: hidden;
+   white-space:nowrap;
+   text-overflow: ellipsis;
+}
+.finish {
+   align-self: center;
+   padding: 10px 25px;
+   margin: 20px 0 0;
+   background-color: var(--col-secondary);
+   font-size: 22px;
+   font-weight: bolder;
+   color: white;
+   border-radius: 15px;
+   text-transform: uppercase;
+   box-shadow:0 5px 10px #3338;
+}

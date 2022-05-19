@@ -1,0 +1,238 @@
+*{
+   box-sizing: border-box;
+}
+body {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-image: radial-gradient(circle, #222, #333);
+   background-size: 100px 100px;
+   background-attachment: fixed;
+}
+header {
+   width: 100%;
+   max-height: 40px;
+   flex-basis: 40px;
+   flex-shrink: 0;
+   flex-grow: 0;
+   display: flex;
+   align-items: center;
+   background-color: #89428E;
+   color: white;
+}
+.app-icon-container {
+   flex-basis: content;
+   flex-grow: 1;
+   width: auto;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   padding: 0 5px;
+   gap: 5px;
+}
+.app-icon, .profile-icon {
+   height: 25px;
+}
+.app-icon-label {
+   font-family: 'Trebuchet MS';
+   text-transform: uppercase;
+   font-weight: bold;
+   font-size: 16px;
+}
+.profile-box {
+   flex-basis: content;
+   flex-shrink: 0;
+   width: auto;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   padding:0 5px;
+   gap: 10px;
+   color: #52b;
+}
+.profile-label {
+   display: none;
+   text-transform: capitalize;
+}
+.message-wrapper, .comment-wrapper {
+   width: 100%;
+   max-width: 500px;
+   flex-basis: 50%;
+   flex-grow: 1;
+   align-self: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
+   padding: 10px;
+   overflow-y: auto;
+   z-index: 0;
+}
+.comment-wrapper {
+   margin: 60px 0;
+}
+.message-box, .commnet-box {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   padding: 10px;
+   background-color: white;
+   gap: 10px;
+   border-radius: 10px;
+}
+.comment-box {
+   width: 70%;
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   padding: 10px;
+   gap: 10px;
+   
+   align-self: flex-start;
+   background-color: white;
+   border-radius: 10px 10px 10px 0;
+}
+.message-header, .comment-footer {
+   display: flex;
+   align-items: center;   
+   gap:10px;
+}
+.message-header img {
+   height: 40px;
+}
+.comment-footer img {
+   height: 20px;
+}
+.sender-info, .commenter-info {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 0px;
+   align-self: stretch;
+   justify-content: center;
+}
+.commenter-info {
+   flex-direction: row;
+   gap: 10px;
+   align-items: flex-end;
+}
+.message-body {
+   position: relative;
+   display: block;
+}
+p, .message-body img,
+.message-body video, 
+.comment-body img,
+.comment-body video {
+   display: block;
+   width: 100%;
+}
+
+.message-footer {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   gap: 10px;
+}
+.reaction {
+   display: flex;
+   align-items: center;
+   width: fit-content;
+   padding: 3px 6px;
+   gap: 5px;
+   border-radius: 5px;
+   background-color: #89428E22;
+}
+.reaction img {
+   height: 25px;
+}
+.reaction span {
+   color: #89428E;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.reaction > * {
+   cursor: pointer;
+}
+.comment-window {
+   position: absolute;
+   top: 0; left: 0;
+   width: 100%;
+   height: 100%;
+   display: none;
+   flex-direction: column;
+   align-items: center;
+   background-image: radial-gradient(circle, #dd6cb9 30%, #962fbf);
+   background-size: 150px 150px;
+   background-attachment: fixed;
+}
+.nav-bar {
+   position:fixed;
+   top:0px;
+   left: 0;
+   width: 100%;
+   height: 60px;
+   min-height: 60px;
+   flex-basis: 60px;
+   flex-grow: 0;
+   flex-shrink: 0;
+   display: flex;
+   align-items: center;
+   padding: 0 10px;
+   gap: 20px;
+   background-color: #89428E;
+   color: white;
+   z-index: 4;
+}
+.edit-comment-box {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 60px;
+   min-height: 60px;
+   flex-basis: 60px;
+   flex-grow: 0;
+   flex-shrink: 0;
+   display: flex;
+   align-items: center;
+   padding:10px;
+   gap: 10px;
+   background-color: white;
+   border-top: solid 1px #777;
+}
+.nav-icon {
+   height: 15px;
+}
+#comment {
+   margin: 0;
+   outline: 0;
+   border: none;
+   background-color: rgb(255, 255, 255);
+   height: 90%;
+   flex-basis: 50%;
+   flex-grow: 1;
+   resize: none;
+   font-size: 18px;
+}
+.send {
+   width: 35px;
+}
+.profile-holder {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #aaa4c2;
+   display: none;
+}
+iframe {
+   width: 100%;
+   max-width: 340px;
+   height: calc(100% - 50px);
+   border: none;
+   outline: none;
+}
