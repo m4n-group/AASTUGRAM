@@ -4,8 +4,8 @@
 
 - To access the landing page, navigate to aastugram/App/views folder and open the landing_page.php file.
 - 	To access the admin panel, navigate to aastugram/App/views/admin folder and then open the login.php file use :
-- username: - Software Department
-- password: - sweg@aastu
+  - username: - Software Department
+  - password: - sweg@aastu
 - All the Tables are to be found on the attached .sql files
 - Name of the Database: - aastugram
 - Password: - 
