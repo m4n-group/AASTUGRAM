@@ -11,7 +11,7 @@
 - Password: - 
 - For login into main page use email:- estifmitiku@gmail.com
 - For password use :- ayeleayele
-- In php mailer, set the email to antzemz@gmail.com and password as Michaelgashaw66@
+- In php mailer, set the email to antzemz@gmail.com and password as Michaelgashaw66@ (since the configuration files are included in the repository, this change need not be applied unless for user specific reasons)
 - Since the RAR file was too big, we had to separate the Resources from the functional Interface so we've sent two different RAR files - Apps and Resources - add them to a folder named aastugram
 
 
