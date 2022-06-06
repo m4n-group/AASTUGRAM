@@ -10,7 +10,7 @@ email: - SWEG@aastu.edu.et
 	All the Tables are to be found on the attached .sql files
 Name of the Database: - aastugram
 Password: - 
-For login use email:- estifmitiku@gmail.com
+For login into main page use email:- estifmitiku@gmail.com
 For password use :- ayeleayele
 In php mailer, set the email to antzemz@gmail.com and password as Michaelgashaw66@
 Since the RAR file was too big, we had to separate the Resources from the functional Interface so we've sent two different RAR files - Apps and Resources - add them to 
