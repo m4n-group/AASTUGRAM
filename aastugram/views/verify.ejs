@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Email verification</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4 form">
+        <h2 class="text-center">THANKS FOR REGISTERING.</h2>
+        <p class="text-center">We have sent a verification email to the address provided.</p>
+        <h2 class="text-center">Code Verification</h2>
+        <form action="/auth/login" class="form-group">
+          <input class="form-control" type="number" name="vkey" placeholder="Enter code" required>
+          <input class='form-control button' type='submit' value='Verify'>
+        </form>
+      </div>
+    </div>
+</body>
+
+</html>

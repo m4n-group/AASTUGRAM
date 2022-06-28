@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <title>Password Verification</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4 form">
+        <form action="/auth/login" method="POST" autocomplete="off">
+          <h2 class="text-center">ENTER NEW PASSWORD</h2>
+          <div class="form-group">
+            <input type="email" name="email" id="email" class="form-control" placeholder="youremail@host.com" required>
+            <input class="form-control" type="password" minlength="8" maxlength="16" name="password"
+              placeholder="Enter new password" required>
+            <input class="form-control" type="password" minlength="8" maxlength="16" name="confirm"
+              placeholder="Re-Enter new password" required>
+          </div>
+          <div class="form-group">
+            <input class="form-control button" type="submit" name="check" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
