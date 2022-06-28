@@ -1,0 +1,124 @@
+.upper-part {
+   width: 100%;
+   display: block;
+   background-image: linear-gradient(45deg, #52b, #927);
+   text-align: center;
+}
+nav {
+   width: 100%;
+   height: 50px;
+   display: flex;
+   align-items: center;
+   padding: 0 10px;
+   gap: 10px;
+
+}
+.icon-box {
+   flex-basis: content;
+   flex-grow: 1;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+.app-icon {
+   width: 40px;
+   border-radius: 50%;
+}
+.app-name {
+   font-weight: bold;
+   font-family: 'Trebuchet MS';
+   color: white;
+}
+.banner {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 70px;
+   gap: 50px;
+   justify-content: space-around;
+}
+nav a, .banner a {
+   padding: 5px 10px;
+   text-transform: uppercase;
+   font-size: 14px;
+   color: white;
+   background-color: rgba(230, 220, 230, 0.233);
+   border-radius: 50px;
+}
+.app-moto {
+   font-weight: bold;
+   color: white;
+   font-size: 34px;
+   text-align: center;
+}
+.middle-part {
+   width: 100%;
+   max-width: 700px;
+   display: grid;
+   grid-template-columns: repeat(1, 1fr);
+   grid-gap: 20px;
+   padding: 20px 0;
+   margin: auto;
+}
+.grid-item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 10px;
+   gap: 20px;
+}
+.grid-item > img{
+   width: 70px;
+}
+.grid-item > p {
+   font-weight: bold;
+   font-size: 16px;
+   color: rgb(57, 124, 201);
+   text-transform: uppercase;
+   text-align: center;
+}
+.lower-part {
+   padding: 50px;
+   text-align: center;
+   background-image: linear-gradient(45deg, var(--col-primary), var(--col-secondary));
+}
+.lower-part h1 {
+   color: rgb(236, 228, 250);
+   text-align: center;
+}
+.lower-part P {
+   width: 100%;
+   max-width: 700px;
+   padding: 0 50px;
+   margin: 10px auto;
+   color:rgb(236, 228, 250);
+}
+footer {
+   background-color: rgb(236, 228, 250);
+   color:rgb(76, 106, 139);
+   text-align: center;
+}
+footer p {
+   padding: 20px;
+   margin: auto;
+}
+@media screen and (min-width: 420px) {
+   .middle-part {
+      grid-template-columns: repeat(2, 1fr)
+   }
+   .grid-item > img{
+      width:auto;
+      height: 120px;
+   }
+   
+}
+@media screen and (min-width: 600px) {
+   .middle-part {
+      grid-template-columns: repeat(3, 1fr)
+   }
+   .grid-item > img{
+      width:auto;
+      height: 120px;
+   }
+   
+}
