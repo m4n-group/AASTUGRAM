@@ -1,1 +1,21 @@
+<%- include('../partials/header.ejs'); %>
+   <div class="main-card">
+      <div class="nav-bar">
+         <span>Login</span>
+      </div> 
 
+      <form name="signupForm" method = "POST" enctype="multipart/form-data">
+         <label for="fName">Userame</label>
+         <input type="text" name="username" id="fName" class="text-input" required>
+
+         <label for="email">E-mail</label>
+         <input type="email" name="email" id="email" class="text-input" placeholder="...@aastu.edu.et" required>
+
+         <label for="password">Password</label>
+         <input type="password" name="password" id="password" class="text-input" required>
+
+         <button type="submit" class="login" name = "submit">LOGIN</button>  
+      </form>
+   </div>
+
+<%- include('../partials/footer.ejs'); %> 
