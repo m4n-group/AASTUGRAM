@@ -5,6 +5,7 @@ curMainScreen = "home",
 curSideBar = "settings",
 curFooter = "commentEditor",
 curSideBar = "settinsWindow";
+
 var activityStack = [];
 var topActivity = -1;
 var curSideBar = 'settingsWindow';
